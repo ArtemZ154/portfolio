@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "jquery": "^3.6.0",
+    "nunjucks": "^3.2.3",
+    "sqlite3": "^5.0.2"
+  }
+}

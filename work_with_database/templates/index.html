@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <table border="1" width="100%" cellpadding="5" style="width: 70vw; height: 20vw">
+        <tr>
+            {% for item in colums %}
+            <th>{{ item }}</th>
+            {% endfor %}
+        </tr>
+
+        {% for item_r in rows %}
+        <tr>
+            {% for key, value in item_r %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <a class="t1" href="/table/all_table">Основная</a>
+    <a class="t2" href="/table/object">Изделия</a>
+    <a class="t3" href="/table/manufacture">Цеха</a>
+    <form action="/sort/brak">
+        <select name="brak" id="">
+            <option value="value1">Без брака</option>
+            <option value="value2">С браком</option>
+        </select>
+        <button type="submit">Отправить</button>
+    </form>
+    <form action="/kol">
+        <button type="submit">Посчитать факты</button>
+    </form>
+    <form action="/p_v">
+        <button type="submit">План выпуска изделий</button>
+    </form>
+    <form action="/o_p_b">
+        <button type="submit">Общий процент брака по цеху</button>
+        {% for key, value in dopinfa %}
+            <p>У цеха №{{ key }} - процент брака {{ value }}</p>
+        {% endfor %}
+    </form>
+</body>
+
+</html>
